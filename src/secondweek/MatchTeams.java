@@ -7,11 +7,16 @@ import java.util.Scanner;
 
 public class MatchTeams {
     public static void main(String[] args) {
+        int teamCount = getTeamCount();
+        List<String> teams = getTeams(teamCount);
+        List<List<String>> fixture = makeMatch(teams);
+
+        System.out.println("Eşleştirme sonucu: " + fixture);
+    }
+
+    public static int getTeamCount(){
         Scanner sc = new Scanner(System.in);
-        Random random = new Random();
         int teamCount;
-        List<String> teams = new ArrayList<>();
-        List<List<String>> fixture = new ArrayList<>();
 
         while(true){
             System.out.print("Takım sayısını giriniz: ");
@@ -24,12 +29,26 @@ public class MatchTeams {
             }
         }
 
+        return teamCount;
+    }
+
+    public static List<String> getTeams(int teamCount){
+        Scanner sc = new Scanner(System.in);
+        List<String> teams = new ArrayList<>();
+
         for (int i = 0; i < teamCount; i++){
             System.out.printf("%d. takımı giriniz: ", i+1);
             teams.add(sc.nextLine());
         }
 
         System.out.println("Girilen takımlar: " + teams);
+
+        return teams;
+    }
+
+    public static List<List<String>> makeMatch(List<String> teams){
+        Random random = new Random();
+        List<List<String>> fixture = new ArrayList<>();
 
         while (teams.size() != 0){
             List<String> match = new ArrayList<>();
@@ -43,7 +62,6 @@ public class MatchTeams {
             fixture.add(match);
         }
 
-        System.out.println("Eşleştirme sonucu: " + fixture);
-
+        return fixture;
     }
 }
