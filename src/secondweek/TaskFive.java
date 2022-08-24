@@ -2,10 +2,11 @@ package secondweek;
 
 import java.util.Scanner;
 
-public class TaskFour {
+public class TaskFive {
     public static void main(String[] args) {
         int num = getNumber();
-        boolean result = NumberUtil.isArmstrong(num);
+        int result = NumberUtil.factorial(num);
+
         showResult(num, result);
     }
 
@@ -15,10 +16,7 @@ public class TaskFour {
         return Integer.parseInt(sc.nextLine());
     }
 
-    public static void showResult(int num, boolean result){
-        if(result)
-            System.out.printf("%d sayısı bir Armstrong sayıdır.", num);
-        else
-            System.out.printf("%d sayısı bir Armstrong sayı değildir.", num);
+    public static void showResult(int num, int result){
+        System.out.printf("%d sayısının faktöriyeli: %d", num, result);
     }
 }

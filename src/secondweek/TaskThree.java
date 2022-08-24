@@ -11,11 +11,15 @@ public class TaskThree {
         int b = getNumber();
 
         int result = NumberUtil.pow(a, b);
-        System.out.printf("%d sayısının %d. dereceden kuvveti: %d", a, b, result);
+        showResult(a, b, result);
     }
 
-    public static int getNumber(){
+    public static int getNumber() {
         Scanner sc = new Scanner(System.in);
         return Integer.parseInt(sc.nextLine());
+    }
+
+    public static void showResult(int a, int b, int result) {
+        System.out.printf("%d sayısının %d. dereceden kuvveti: %d", a, b, result);
     }
 }
